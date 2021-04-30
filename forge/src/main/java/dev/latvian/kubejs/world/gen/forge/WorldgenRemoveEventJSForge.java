@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world.gen.forge;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.world.gen.RemoveSpawnsByCategoryProperties;
 import dev.latvian.kubejs.world.gen.RemoveSpawnsByIDProperties;
 import dev.latvian.kubejs.world.gen.WorldgenEntryList;
@@ -15,6 +17,9 @@ import java.util.function.Predicate;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.WORLDGEN_ADD }
+)
 public class WorldgenRemoveEventJSForge extends WorldgenRemoveEventJS {
 	private final BiomeLoadingEvent event;
 

@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.entity.forge;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.DamageSourceJS;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.entity.ItemEntityJS;
@@ -17,6 +19,10 @@ import java.util.List;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.ENTITY_DROPS },
+		client = { KubeJSEvents.ENTITY_DROPS }
+)
 public class LivingEntityDropsEventJS extends LivingEntityEventJS {
 	private final LivingDropsEvent event;
 	public List<ItemEntityJS> eventDrops;

@@ -1,11 +1,17 @@
 package dev.latvian.kubejs.entity;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.ENTITY_ATTACK },
+		client = { KubeJSEvents.ENTITY_ATTACK }
+)
 public class LivingEntityAttackEventJS extends LivingEntityEventJS {
 	private final LivingEntity entity;
 	private final DamageSource source;

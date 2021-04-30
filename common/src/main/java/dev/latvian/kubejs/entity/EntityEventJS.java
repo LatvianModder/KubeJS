@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.entity;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.world.WorldEventJS;
 import dev.latvian.kubejs.world.WorldJS;
 import net.minecraft.world.entity.Entity;
@@ -7,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent
 public abstract class EntityEventJS extends WorldEventJS {
 	private EntityJS cachedEntity;
 

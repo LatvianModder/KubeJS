@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.block;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.item.ItemStackJS;
 import dev.latvian.kubejs.player.PlayerEventJS;
@@ -13,6 +15,10 @@ import org.jetbrains.annotations.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { KubeJSEvents.BLOCK_LEFT_CLICK },
+		server = { KubeJSEvents.BLOCK_LEFT_CLICK }
+)
 public class BlockLeftClickEventJS extends PlayerEventJS {
 	private final Player player;
 	private final InteractionHand hand;

@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.jei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.util.ListJS;
 import dev.latvian.kubejs.util.UtilsJS;
@@ -13,6 +14,9 @@ import java.util.List;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { JEIIntegration.JEI_HIDE_CUSTOM }
+)
 public class HideCustomJEIEventJS extends EventJS {
 	private final IJeiRuntime runtime;
 	private final HashMap<IIngredientType<?>, HideJEIEventJS<?>> events;

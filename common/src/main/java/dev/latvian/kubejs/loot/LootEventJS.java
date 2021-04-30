@@ -2,6 +2,7 @@ package dev.latvian.kubejs.loot;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.util.MapJS;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,7 @@ import java.util.function.Consumer;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent
 public abstract class LootEventJS<LB extends LootBuilder<?, ?>> extends EventJS {
 	private final Map<ResourceLocation, JsonElement> lootMap;
 	final Gson gsonConditions;

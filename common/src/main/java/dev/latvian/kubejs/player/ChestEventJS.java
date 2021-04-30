@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.player;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.docs.MinecraftClass;
 import dev.latvian.kubejs.item.InventoryJS;
 import dev.latvian.kubejs.world.BlockContainerJS;
@@ -13,6 +15,10 @@ import org.jetbrains.annotations.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { KubeJSEvents.PLAYER_CHEST_OPENED, KubeJSEvents.PLAYER_CHEST_CLOSED },
+		server = { KubeJSEvents.PLAYER_CHEST_OPENED, KubeJSEvents.PLAYER_CHEST_CLOSED }
+)
 public class ChestEventJS extends InventoryEventJS {
 	private InventoryJS inventory;
 

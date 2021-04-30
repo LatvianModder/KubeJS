@@ -1,6 +1,7 @@
 package dev.latvian.kubejs.integration.jei;
 
 import dev.latvian.kubejs.KubeJS;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.runtime.IJeiRuntime;
@@ -13,6 +14,9 @@ import java.util.function.Predicate;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { JEIIntegration.JEI_YEET_CATEGORIES }
+)
 public class YeetJEICategoriesEvent extends EventJS {
 	private final IJeiRuntime runtime;
 	private final HashSet<ResourceLocation> categoriesYeeted;

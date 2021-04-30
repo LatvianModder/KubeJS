@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world.gen.fabric;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.util.UtilsJS;
 import dev.latvian.kubejs.world.gen.RemoveSpawnsByCategoryProperties;
 import dev.latvian.kubejs.world.gen.RemoveSpawnsByIDProperties;
@@ -21,6 +23,9 @@ import java.util.function.Predicate;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.WORLDGEN_REMOVE }
+)
 public class WorldgenRemoveEventJSFabric extends WorldgenRemoveEventJS {
 	private final BiomeSelectionContext selectionContext;
 	private final BiomeModificationContext modificationContext;

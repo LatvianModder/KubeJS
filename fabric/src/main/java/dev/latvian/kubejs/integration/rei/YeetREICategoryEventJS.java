@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.rei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import me.shedaniel.rei.api.RecipeHelper;
 import me.shedaniel.rei.utils.CollectionUtils;
@@ -8,6 +9,9 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.Collection;
 import java.util.Set;
 
+@KubeJSEvent(
+		client = { REIIntegration.REI_YEET_CATEGORIES }
+)
 public class YeetREICategoryEventJS extends EventJS {
 	private final Set<ResourceLocation> categoriesYeeted;
 

@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.block;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityEventJS;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.world.BlockContainerJS;
@@ -14,6 +16,10 @@ import javax.annotation.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.BLOCK_PLACE },
+		client = { KubeJSEvents.BLOCK_PLACE }
+)
 public class BlockPlaceEventJS extends EntityEventJS {
 	private final Entity entity;
 	private final Level world;

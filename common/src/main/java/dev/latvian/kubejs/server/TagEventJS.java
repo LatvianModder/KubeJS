@@ -3,9 +3,11 @@ package dev.latvian.kubejs.server;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import dev.latvian.kubejs.KubeJS;
+import dev.latvian.kubejs.KubeJSEvents;
 import dev.latvian.kubejs.KubeJSPaths;
 import dev.latvian.kubejs.KubeJSRegistries;
 import dev.latvian.kubejs.core.TagBuilderKJS;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.script.ScriptType;
 import dev.latvian.kubejs.util.ListJS;
@@ -32,6 +34,14 @@ import java.util.regex.Pattern;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = {
+				KubeJSEvents.ITEM_TAGS,
+				KubeJSEvents.BLOCK_TAGS,
+				KubeJSEvents.ENTITY_TYPE_TAGS,
+				KubeJSEvents.FLUID_TAGS
+		}
+)
 public class TagEventJS<T> extends EventJS {
 	private static String getIdOfEntry(String s) {
 		if (s.length() > 0 && s.charAt(s.length() - 1) == '?') {

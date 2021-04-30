@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.item;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.text.Text;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,8 @@ import java.util.List;
 /**
  * @author LatvianModder
  */
+@Deprecated
+@KubeJSEvent
 public class OldItemTooltipEventJS extends EventJS {
 	private final ItemStack stack;
 	private final List<Component> lines;

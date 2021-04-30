@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.entity.forge;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.entity.LivingEntityEventJS;
 import dev.latvian.kubejs.world.BlockContainerJS;
@@ -11,6 +13,9 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.ENTITY_CHECK_SPAWN }
+)
 public class CheckLivingEntitySpawnEventJS extends LivingEntityEventJS {
 	private final LivingSpawnEvent.CheckSpawn event;
 

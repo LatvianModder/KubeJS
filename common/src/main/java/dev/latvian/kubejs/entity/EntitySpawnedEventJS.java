@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.entity;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.world.WorldJS;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -7,6 +9,9 @@ import net.minecraft.world.level.Level;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.ENTITY_SPAWNED }
+)
 public class EntitySpawnedEventJS extends EntityEventJS {
 	private final Entity entity;
 	private final Level world;

@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.item;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.player.PlayerEventJS;
 import net.minecraft.world.InteractionHand;
@@ -9,6 +11,10 @@ import net.minecraft.world.entity.player.Player;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.ITEM_ENTITY_INTERACT },
+		client = { KubeJSEvents.ITEM_ENTITY_INTERACT }
+)
 public class ItemEntityInteractEventJS extends PlayerEventJS {
 	private final Player player;
 	private final Entity entity;

@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.item;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.item.ingredient.IngredientJS;
 import dev.latvian.kubejs.text.Text;
@@ -16,6 +18,9 @@ import java.util.Map;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { KubeJSEvents.ITEM_TOOLTIP }
+)
 public class ItemTooltipEventJS extends EventJS {
 	@FunctionalInterface
 	public interface StaticTooltipHandler {

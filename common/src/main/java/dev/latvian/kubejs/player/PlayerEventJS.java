@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.player;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.entity.LivingEntityEventJS;
 import me.shedaniel.architectury.annotations.ExpectPlatform;
@@ -11,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent
 public abstract class PlayerEventJS extends LivingEntityEventJS {
 	@Nullable
 	public PlayerJS getPlayer() {

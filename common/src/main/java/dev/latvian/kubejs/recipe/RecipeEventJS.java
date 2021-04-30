@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import dev.latvian.kubejs.KubeJSEvents;
 import dev.latvian.kubejs.KubeJSRegistries;
 import dev.latvian.kubejs.core.RecipeManagerKJS;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.item.ItemStackJS;
 import dev.latvian.kubejs.item.ingredient.IngredientJS;
@@ -52,6 +53,9 @@ import java.util.stream.Collectors;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.RECIPES }
+)
 public class RecipeEventJS extends EventJS {
 	private static final Map<Class, MethodHandle> TR_CONSTRUCTORS = new ConcurrentHashMap<>();
 	private static final Map<Class, MethodHandle> TR_DESERIALIZERS = new ConcurrentHashMap<>();

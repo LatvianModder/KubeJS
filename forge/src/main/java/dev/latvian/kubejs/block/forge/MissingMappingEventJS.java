@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.block.forge;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.script.ScriptType;
 import dev.latvian.kubejs.util.UtilsJS;
@@ -13,6 +15,9 @@ import java.util.function.Function;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.ITEM_MISSING_MAPPINGS, KubeJSEvents.BLOCK_MISSING_MAPPINGS }
+)
 public class MissingMappingEventJS<T extends IForgeRegistryEntry<T>> extends EventJS {
 	private final RegistryEvent.MissingMappings<T> event;
 	private final Function<ResourceLocation, T> valueProvider;

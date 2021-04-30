@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.block;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.player.PlayerEventJS;
 import dev.latvian.kubejs.world.BlockContainerJS;
@@ -13,6 +15,10 @@ import org.jetbrains.annotations.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { KubeJSEvents.BLOCK_BREAK },
+		server = { KubeJSEvents.BLOCK_BREAK }
+)
 public class BlockBreakEventJS extends PlayerEventJS {
 	private final ServerPlayer entity;
 	private final Level world;

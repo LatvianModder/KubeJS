@@ -1,11 +1,14 @@
 package dev.latvian.kubejs.block;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.player.PlayerEventJS;
 
 /**
  * @author LatvianModder
  */
+@Deprecated
+@KubeJSEvent
 public class BlockDropsEventJS extends PlayerEventJS {
 	@Override
 	public EntityJS getEntity() {

@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.jei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.runtime.IJeiRuntime;
@@ -13,6 +14,9 @@ import java.util.stream.Collectors;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = {JEIIntegration.JEI_HIDE_ITEMS, JEIIntegration.JEI_HIDE_FLUIDS}
+)
 public class HideJEIEventJS<T> extends EventJS {
 	private final IJeiRuntime runtime;
 	private final IIngredientType<T> type;

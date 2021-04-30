@@ -2,8 +2,10 @@ package dev.latvian.kubejs.loot;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import dev.latvian.kubejs.KubeJSEvents;
 import dev.latvian.kubejs.KubeJSRegistries;
 import dev.latvian.kubejs.block.BlockStatePredicate;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
@@ -13,6 +15,9 @@ import java.util.function.Consumer;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.BLOCK_LOOT_TABLES }
+)
 public class BlockLootEventJS extends LootEventJS<BlockLootBuilder> {
 	private static final ResourceLocation AIR_ID = new ResourceLocation("minecraft:air");
 

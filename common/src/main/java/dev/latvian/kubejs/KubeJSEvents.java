@@ -7,7 +7,7 @@ public class KubeJSEvents {
 	public static final String INIT = "init";
 	public static final String POSTINIT = "postinit";
 	public static final String LOADED = "loaded";
-	public static final String COMMAND_REGISTRY = "command.registry";
+	public static final String COMMAND_REGISTRY = "command.registry"; // TODO remove
 	public static final String COMMAND_RUN = "command.run";
 
 	public static final String CLIENT_INIT = "client.init";
@@ -20,8 +20,10 @@ public class KubeJSEvents {
 	public static final String SERVER_LOAD = "server.load";
 	public static final String SERVER_UNLOAD = "server.unload";
 	public static final String SERVER_TICK = "server.tick";
+	public static final String SERVER_DATAPACK_FIRST_PRIORITY = "server.datapack.first";
 	public static final String SERVER_DATAPACK_HIGH_PRIORITY = "server.datapack.high_priority";
 	public static final String SERVER_DATAPACK_LOW_PRIORITY = "server.datapack.low_priority";
+	public static final String SERVER_DATAPACK_LAST_PRIORITY = "server.datapack.last";
 	public static final String SERVER_CUSTOM_COMMAND = "server.custom_command";
 	public static final String RECIPES = "recipes";
 	public static final String RECIPES_SERIALIZER_SPECIAL_FLAG = "recipes.serializer.special.flag";
@@ -62,8 +64,8 @@ public class KubeJSEvents {
 	public static final String BLOCK_LEFT_CLICK = "block.left_click";
 	public static final String BLOCK_PLACE = "block.place";
 	public static final String BLOCK_BREAK = "block.break";
-	public static final String BLOCK_DROPS = "block.drops";
 	public static final String BLOCK_MODIFICATION = "block.modification";
+	public static final String BLOCK_LOOT_TABLES = "block.loot_tables";
 
 	public static final String ITEM_REGISTRY = "item.registry";
 	public static final String ITEM_MISSING_MAPPINGS = "item.missing_mappings";

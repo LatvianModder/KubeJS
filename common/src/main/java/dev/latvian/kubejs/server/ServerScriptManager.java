@@ -100,9 +100,9 @@ public class ServerScriptManager {
 		scriptManager.load();
 
 		ScriptType.SERVER.console.setLineNumber(true);
-		new DataPackEventJS(virtualDataPackLow).post(ScriptType.SERVER, "server.datapack.last");
+		new DataPackEventJS(virtualDataPackLow).post(ScriptType.SERVER, KubeJSEvents.SERVER_DATAPACK_LAST_PRIORITY);
 		new DataPackEventJS(virtualDataPackLow).post(ScriptType.SERVER, KubeJSEvents.SERVER_DATAPACK_LOW_PRIORITY);
-		new DataPackEventJS(virtualDataPackHigh).post(ScriptType.SERVER, "server.datapack.first");
+		new DataPackEventJS(virtualDataPackHigh).post(ScriptType.SERVER, KubeJSEvents.SERVER_DATAPACK_FIRST_PRIORITY); // TODO swap order with high priority?
 		new DataPackEventJS(virtualDataPackHigh).post(ScriptType.SERVER, KubeJSEvents.SERVER_DATAPACK_HIGH_PRIORITY);
 
 		UtilsJS.postModificationEvents();

@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.integration.jei;
 
+
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.util.ListJS;
 import mezz.jei.api.ingredients.IIngredientType;
@@ -12,6 +14,9 @@ import java.util.function.Function;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { JEIIntegration.JEI_ADD_ITEMS, JEIIntegration.JEI_ADD_FLUIDS }
+)
 public class AddJEIEventJS<T> extends EventJS {
 	private final IJeiRuntime runtime;
 	private final IIngredientType<T> type;

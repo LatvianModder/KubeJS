@@ -1,7 +1,9 @@
 package dev.latvian.kubejs.recipe;
 
 import dev.latvian.kubejs.KubeJS;
+import dev.latvian.kubejs.KubeJSEvents;
 import dev.latvian.kubejs.KubeJSRegistries;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.recipe.minecraft.ShapedRecipeJS;
 import dev.latvian.kubejs.recipe.minecraft.ShapelessRecipeJS;
@@ -16,6 +18,9 @@ import java.util.function.Supplier;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		server = { KubeJSEvents.RECIPES_TYPE_REGISTRY }
+)
 public class RecipeTypeRegistryEventJS extends EventJS {
 	private final Map<ResourceLocation, RecipeTypeJS> map;
 

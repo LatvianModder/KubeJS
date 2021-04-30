@@ -1,6 +1,7 @@
 package dev.latvian.kubejs.integration.rei;
 
 import com.google.common.collect.Lists;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.util.ListJS;
 import me.shedaniel.rei.api.EntryRegistry;
@@ -13,6 +14,9 @@ import java.util.function.Function;
 /**
  * @author shedaniel
  */
+@KubeJSEvent(
+		client = { REIIntegration.REI_ADD_ITEMS }
+)
 public class AddREIEventJS extends EventJS {
 	private final EntryRegistry registry;
 	private final Function<Object, Collection<EntryStack>> function;

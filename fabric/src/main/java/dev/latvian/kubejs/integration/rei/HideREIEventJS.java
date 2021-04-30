@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.rei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import it.unimi.dsi.fastutil.longs.LongSet;
@@ -13,6 +14,9 @@ import java.util.stream.Collectors;
 /**
  * @author shedaniel
  */
+@KubeJSEvent(
+		client = { REIIntegration.REI_HIDE_ITEMS }
+)
 public class HideREIEventJS<T> extends EventJS {
 	private final EntryRegistry registry;
 	private final EntryStack.Type type;

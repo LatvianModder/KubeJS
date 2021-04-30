@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world.gen.forge;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.world.gen.WorldgenAddEventJS;
 import dev.latvian.kubejs.world.gen.WorldgenEntryList;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +15,9 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.WORLDGEN_ADD }
+)
 public class WorldgenAddEventJSForge extends WorldgenAddEventJS {
 	private final BiomeLoadingEvent event;
 

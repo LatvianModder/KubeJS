@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.recipe.special;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import me.shedaniel.architectury.event.Event;
 import me.shedaniel.architectury.event.EventFactory;
@@ -11,6 +13,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import java.util.HashMap;
 import java.util.Map;
 
+@KubeJSEvent(
+		server = { KubeJSEvents.RECIPES_SERIALIZER_SPECIAL_FLAG }
+)
 public class SpecialRecipeSerializerManager extends EventJS {
 	public static final SpecialRecipeSerializerManager INSTANCE = new SpecialRecipeSerializerManager();
 	public static final Event<Runnable> EVENT = EventFactory.createLoop();

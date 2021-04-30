@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world.gen;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.util.ListJS;
 import dev.latvian.kubejs.util.UtilsJS;
@@ -28,6 +30,9 @@ import java.util.function.Consumer;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.WORLDGEN_ADD }
+)
 public class WorldgenAddEventJS extends EventJS {
 	protected void addFeature(GenerationStep.Decoration decoration, ConfiguredFeature<?, ?> configuredFeature) {
 	}

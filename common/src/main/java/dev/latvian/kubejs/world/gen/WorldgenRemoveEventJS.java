@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world.gen;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -13,6 +15,9 @@ import java.util.function.Predicate;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.WORLDGEN_REMOVE }
+)
 public class WorldgenRemoveEventJS extends EventJS {
 	protected boolean verifyBiomes(WorldgenEntryList biomes) {
 		return true;

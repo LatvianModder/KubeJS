@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.rei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.item.ItemStackJS;
 import dev.latvian.kubejs.item.ingredient.IngredientJS;
@@ -13,6 +14,9 @@ import net.minecraft.network.chat.Component;
 /**
  * @author shedaniel
  */
+@KubeJSEvent(
+		client = { REIIntegration.REI_INFORMATION }
+)
 public class InformationREIEventJS extends EventJS {
 	/**
 	 * Registers an information display.

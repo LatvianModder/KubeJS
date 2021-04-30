@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.integration.jei;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.item.ItemStackJS;
 import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
@@ -12,6 +13,9 @@ import java.util.function.Function;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		client = { JEIIntegration.JEI_SUBTYPES }
+)
 public class AddJEISubtypesEventJS extends EventJS {
 	@FunctionalInterface
 	public interface Interpreter extends Function<ItemStackJS, Object> {

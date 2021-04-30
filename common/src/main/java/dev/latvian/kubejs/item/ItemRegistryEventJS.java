@@ -1,8 +1,10 @@
 package dev.latvian.kubejs.item;
 
 import dev.latvian.kubejs.KubeJS;
+import dev.latvian.kubejs.KubeJSEvents;
 import dev.latvian.kubejs.KubeJSObjects;
 import dev.latvian.kubejs.block.BlockItemBuilder;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 
 import java.util.function.Supplier;
@@ -10,6 +12,9 @@ import java.util.function.Supplier;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.ITEM_REGISTRY }
+)
 public class ItemRegistryEventJS extends EventJS {
 	public ItemBuilder create(String name) {
 		ItemBuilder builder = new ItemBuilder(name);

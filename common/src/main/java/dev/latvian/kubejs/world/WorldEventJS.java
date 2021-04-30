@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.world;
 
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.event.EventJS;
 import dev.latvian.kubejs.server.ServerJS;
 import dev.latvian.kubejs.util.UtilsJS;
@@ -10,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * @author LatvianModder
  */
+@KubeJSEvent
 public abstract class WorldEventJS extends EventJS {
 	public abstract WorldJS getWorld();
 

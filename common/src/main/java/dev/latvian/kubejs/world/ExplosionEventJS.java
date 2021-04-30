@@ -1,5 +1,7 @@
 package dev.latvian.kubejs.world;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.entity.EntityJS;
 import dev.latvian.kubejs.entity.LivingEntityJS;
 import dev.latvian.kubejs.player.EntityArrayList;
@@ -56,6 +58,10 @@ public abstract class ExplosionEventJS extends WorldEventJS {
 		return getWorld().getLivingEntity(explosion.getSourceMob());
 	}
 
+	@KubeJSEvent(
+			server = { KubeJSEvents.WORLD_EXPLOSION_PRE },
+			client = { KubeJSEvents.WORLD_EXPLOSION_PRE }
+	)
 	public static class Pre extends ExplosionEventJS {
 		public Pre(Level world, Explosion explosion) {
 			super(world, explosion);
@@ -75,6 +81,10 @@ public abstract class ExplosionEventJS extends WorldEventJS {
 		}
 	}
 
+	@KubeJSEvent(
+			server = { KubeJSEvents.WORLD_EXPLOSION_POST },
+			client = { KubeJSEvents.WORLD_EXPLOSION_POST }
+	)
 	public static class Post extends ExplosionEventJS {
 		private final List<Entity> affectedEntities;
 

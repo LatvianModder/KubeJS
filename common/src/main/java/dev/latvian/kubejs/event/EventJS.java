@@ -1,10 +1,16 @@
 package dev.latvian.kubejs.event;
 
+import dev.latvian.kubejs.KubeJSEvents;
+import dev.latvian.kubejs.docs.KubeJSEvent;
 import dev.latvian.kubejs.script.ScriptType;
 
 /**
  * @author LatvianModder
  */
+@KubeJSEvent(
+		startup = { KubeJSEvents.INIT, KubeJSEvents.POSTINIT, KubeJSEvents.LOADED },
+		client 	= { KubeJSEvents.CLIENT_INIT }
+)
 public class EventJS {
 	private boolean cancelled = false;
 
