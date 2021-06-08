@@ -2,7 +2,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ main, dev ]
+    branches:
+      - '**/main'
+      - '**/dev'
   workflow_dispatch:
     inputs:
       norelease:
@@ -32,14 +34,18 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Gradle
+        id: build
         env:
           SAPS_TOKEN: ${{ secrets.SAPS_TOKEN }}
         run: |
+          if [[ ${{ github.event.ref }} =~ ^refs\/heads\/(\d|\.)+\/main$ ]]; then
+              echo ::set-output name=release::true
+          fi
           chmod +x ./gradlew
           ./gradlew build publish --stacktrace --no-daemon
       - name: Release to CurseForge
         if: |
-          github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[norelease]') && github.event.inputs.norelease != 'true'
+          steps.build.outputs.release == 'true' && endsWith(github.ref, '/main') && !contains(github.event.head_commit.message, '[norelease]') && github.event.inputs.norelease != 'true'
         env:
           GIT_COMMIT: ${{ github.event.after }}
           GIT_PREVIOUS_COMMIT: ${{ github.event.before }}
