@@ -15,16 +15,14 @@ import dev.latvian.kubejs.item.custom.ItemToolTierEventJS;
 import dev.latvian.kubejs.net.KubeJSNet;
 import dev.latvian.kubejs.player.KubeJSPlayerEventHandler;
 import dev.latvian.kubejs.recipe.KubeJSRecipeEventHandler;
-import dev.latvian.kubejs.script.ScriptFileInfo;
-import dev.latvian.kubejs.script.ScriptManager;
-import dev.latvian.kubejs.script.ScriptPack;
-import dev.latvian.kubejs.script.ScriptType;
-import dev.latvian.kubejs.script.ScriptsLoadedEvent;
+import dev.latvian.kubejs.script.*;
 import dev.latvian.kubejs.server.KubeJSServerEventHandler;
 import dev.latvian.kubejs.util.KubeJSPlugins;
 import dev.latvian.kubejs.util.UtilsJS;
 import dev.latvian.kubejs.world.KubeJSWorldEventHandler;
 import dev.latvian.kubejs.world.gen.FlatChunkGeneratorKJS;
+import dev.latvian.kubejs.world.gen.WorldgenAddEventJS;
+import dev.latvian.kubejs.world.gen.WorldgenRemoveEventJS;
 import me.shedaniel.architectury.platform.Mod;
 import me.shedaniel.architectury.platform.Platform;
 import me.shedaniel.architectury.registry.CreativeTabs;
@@ -135,6 +133,9 @@ public class KubeJS {
 		new BlockRegistryEventJS().post(ScriptType.STARTUP, KubeJSEvents.BLOCK_REGISTRY);
 		new ItemRegistryEventJS().post(ScriptType.STARTUP, KubeJSEvents.ITEM_REGISTRY);
 		new FluidRegistryEventJS().post(ScriptType.STARTUP, KubeJSEvents.FLUID_REGISTRY);
+
+		new WorldgenAddEventJS().post(ScriptType.STARTUP, KubeJSEvents.WORLDGEN_ADD);
+		new WorldgenRemoveEventJS().post(ScriptType.STARTUP, KubeJSEvents.WORLDGEN_REMOVE);
 
 		KubeJSOtherEventHandler.init();
 		KubeJSWorldEventHandler.init();

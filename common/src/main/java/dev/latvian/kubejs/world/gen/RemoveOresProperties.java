@@ -1,6 +1,7 @@
 package dev.latvian.kubejs.world.gen;
 
 import dev.latvian.kubejs.block.BlockStatePredicate;
+import dev.latvian.kubejs.world.gen.filter.biome.BiomeFilter;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 /**
@@ -9,7 +10,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 public class RemoveOresProperties {
 	public GenerationStep.Decoration _worldgenLayer = GenerationStep.Decoration.UNDERGROUND_ORES;
 	public BlockStatePredicate _blocks = BlockStatePredicate.Empty.INSTANCE;
-	public final WorldgenEntryList biomes = new WorldgenEntryList();
+	public BiomeFilter biomes = BiomeFilter.ALWAYS_TRUE;
 
 	public void setWorldgenLayer(String id) {
 		_worldgenLayer = GenerationStep.Decoration.valueOf(id.toUpperCase());

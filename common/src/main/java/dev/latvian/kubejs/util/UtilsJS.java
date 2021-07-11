@@ -1,5 +1,6 @@
 package dev.latvian.kubejs.util;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
@@ -38,6 +39,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -482,5 +485,47 @@ public class UtilsJS {
 	public static void postModificationEvents() {
 		new BlockModificationEventJS().post(ScriptType.STARTUP, KubeJSEvents.BLOCK_MODIFICATION);
 		new ItemModificationEventJS().post(ScriptType.STARTUP, KubeJSEvents.ITEM_MODIFICATION);
+	}
+
+	private static void writeJsonHash(DataOutputStream stream, @Nullable JsonElement element) throws IOException {
+		if (element == null || element.isJsonNull()) {
+			stream.writeByte('-');
+		} else if (element instanceof JsonArray) {
+			stream.writeByte('[');
+			for (JsonElement e : (JsonArray) element) {
+				writeJsonHash(stream, e);
+			}
+		} else if (element instanceof JsonObject) {
+			stream.writeByte('{');
+			for (Map.Entry<String, JsonElement> e : ((JsonObject) element).entrySet()) {
+				stream.writeBytes(e.getKey());
+				writeJsonHash(stream, e.getValue());
+			}
+		} else if (element instanceof JsonPrimitive) {
+			stream.writeByte('=');
+			if (((JsonPrimitive) element).isBoolean()) {
+				stream.writeBoolean(element.getAsBoolean());
+			} else if (((JsonPrimitive) element).isNumber()) {
+				stream.writeDouble(element.getAsDouble());
+			} else {
+				stream.writeBytes(element.getAsString());
+			}
+		} else {
+			stream.writeByte('?');
+			stream.writeInt(element.hashCode());
+		}
+	}
+
+	public static byte[] getJsonHashBytes(JsonElement json) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+			writeJsonHash(new DataOutputStream(baos), json);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			int h = json.hashCode();
+			return new byte[]{(byte) (h >> 24), (byte) (h >> 16), (byte) (h >> 8), (byte) (h >> 0)};
+		}
+
+		return baos.toByteArray();
 	}
 }

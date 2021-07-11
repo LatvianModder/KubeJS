@@ -34,6 +34,8 @@ import dev.latvian.kubejs.util.ListJS;
 import dev.latvian.kubejs.util.MapJS;
 import dev.latvian.kubejs.util.UUIDUtilsJS;
 import dev.latvian.kubejs.util.UtilsJS;
+import dev.latvian.kubejs.world.gen.filter.biome.BiomeFilter;
+import dev.latvian.kubejs.world.gen.filter.mob.MobFilter;
 import dev.latvian.mods.rhino.util.wrap.TypeWrappers;
 import me.shedaniel.architectury.registry.Registry;
 import me.shedaniel.architectury.registry.ToolType;
@@ -245,6 +247,8 @@ public class BuiltinKubeJSPlugin extends KubeJSPlugin {
 		typeWrappers.register(BlockStatePredicate.class, BlockStatePredicate::of);
 		typeWrappers.register(FluidStackJS.class, FluidStackJS::of);
 		typeWrappers.register(RecipeFilter.class, RecipeFilter::of);
+		typeWrappers.register(BiomeFilter.class, BiomeFilter::of);
+		typeWrappers.register(MobFilter.class, MobFilter::of);
 		typeWrappers.register(MaterialJS.class, MaterialListJS.INSTANCE::of);
 	}
 
