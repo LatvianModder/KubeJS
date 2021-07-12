@@ -4,9 +4,11 @@ import dev.latvian.kubejs.KubeJSRegistries;
 import dev.latvian.kubejs.core.ItemKJS;
 import dev.latvian.mods.rhino.util.RemapForJS;
 import me.shedaniel.architectury.registry.fuel.FuelRegistry;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 /**
@@ -44,4 +46,8 @@ public abstract class ItemMixin implements ItemKJS {
 	public String getIdKJS() {
 		return KubeJSRegistries.items().getId((Item) (Object) this).toString();
 	}
+
+	@Override
+	@Accessor("foodProperties")
+	public abstract void setFoodPropertiesKJS(FoodProperties properties);
 }

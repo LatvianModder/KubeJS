@@ -3,6 +3,7 @@ package dev.latvian.kubejs.item;
 import dev.latvian.kubejs.bindings.RarityWrapper;
 import dev.latvian.kubejs.core.ItemKJS;
 import dev.latvian.kubejs.core.TieredItemKJS;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
@@ -49,5 +50,13 @@ public class ItemModificationProperties {
 		} else {
 			throw new IllegalArgumentException("Item is not a tool/tiered item!");
 		}
+	}
+
+	public void setFoodProperties(Consumer<FoodBuilder> consumer) {
+		Item originalItem = (Item)item;
+		FoodProperties fp = originalItem.getFoodProperties();
+		FoodBuilder builder = fp == null ? new FoodBuilder() : new FoodBuilder(fp);
+		consumer.accept(builder);
+		item.setFoodPropertiesKJS(builder.build());
 	}
 }

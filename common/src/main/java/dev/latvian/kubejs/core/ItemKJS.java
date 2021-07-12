@@ -1,6 +1,7 @@
 package dev.latvian.kubejs.core;
 
 import dev.latvian.mods.rhino.util.RemapForJS;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
@@ -18,4 +19,6 @@ public interface ItemKJS {
 
 	void setRarityKJS(Rarity r);
 	void setBurnTimeKJS(int i);
+
+	void setFoodPropertiesKJS(FoodProperties properties);
 }
