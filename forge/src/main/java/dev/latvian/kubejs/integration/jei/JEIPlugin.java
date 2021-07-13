@@ -52,8 +52,8 @@ public class JEIPlugin implements IModPlugin {
 		new YeetJEICategoriesEvent(runtime).post(ScriptType.CLIENT, JEIIntegration.JEI_YEET_CATEGORIES);
 		new YeetJEIRecipesEvent(runtime).post(ScriptType.CLIENT, JEIIntegration.JEI_YEET_RECIPES);
 
-		new AddJEIEventJS<>(runtime, VanillaTypes.ITEM, object -> ItemStackJS.of(object).getItemStack()).post(ScriptType.CLIENT, JEIIntegration.JEI_ADD_ITEMS);
-		new AddJEIEventJS<>(runtime, VanillaTypes.FLUID, object -> fromArchitectury(FluidStackJS.of(object).getFluidStack())).post(ScriptType.CLIENT, JEIIntegration.JEI_ADD_FLUIDS);
+		new AddJEIEventJS<>(runtime, VanillaTypes.ITEM, object -> ItemStackJS.of(object).getItemStack(), stack -> !stack.isEmpty()).post(ScriptType.CLIENT, JEIIntegration.JEI_ADD_ITEMS);
+		new AddJEIEventJS<>(runtime, VanillaTypes.FLUID, object -> fromArchitectury(FluidStackJS.of(object).getFluidStack()), stack -> !stack.isEmpty()).post(ScriptType.CLIENT, JEIIntegration.JEI_ADD_FLUIDS);
 	}
 
 	private FluidStack fromArchitectury(me.shedaniel.architectury.fluid.FluidStack stack) {
